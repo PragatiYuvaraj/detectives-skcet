@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BE THE SHERLOCK OF SCROLLS - Media Literacy Detective</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="app-title">🕵️ BE THE SHERLOCK OF SCROLLS</h1>
+                <div class="user-stats">
+                    <div class="stat-item">
+                        <span class="stat-icon">⚡</span>
+                        <span class="stat-value" id="streak-counter">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">🎯</span>
+                        <span class="stat-value" id="total-points">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">🏆</span>
+                        <span class="stat-value" id="badge-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Container -->
+        <main class="main-content">
+            <!-- Home Dashboard -->
+            <section id="dashboard" class="section active">
+                <div class="welcome-section">
+                    <h2>Welcome back, Detective!</h2>
+                    <div class="rank-display">
+                        <div class="rank-icon" id="current-rank-icon">🔍</div>
+                        <div class="rank-info">
+                            <h3 id="current-rank-name">Novice Detective</h3>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="rank-progress"></div>
+                            </div>
+                            <p class="progress-text" id="progress-text">0 / 100 points to next rank</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card" data-section="quiz">
+                        <div class="card-icon">❓</div>
+                        <h3>Daily Quiz</h3>
+                        <p>Test your detective skills with today's challenges</p>
+                        <div class="card-stats">
+                            <span id="daily-quiz-status">Not started</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card" data-section="modules">
+                        <div class="card-icon">📚</div>
+                        <h3>Learning Modules</h3>
+                        <p>Master the art of digital detection</p>
+                        <div class="card-stats">
+                            <span id="modules-progress">0 / 4 completed</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card" data-section="cases">
+                        <div class="card-icon">🔍</div>
+                        <h3>Case Studies</h3>
+                        <p>Solve real-world digital mysteries</p>
+                        <div class="card-stats">
+                            <span id="cases-progress">0 / 2 solved</span>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card" data-section="resources">
+                        <div class="card-icon">🛠️</div>
+                        <h3>Resource Hub</h3>
+                        <p>Your toolkit for safe digital navigation</p>
+                        <div class="card-stats">
+                            <span>Always available</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="badges-section">
+                    <h3>Your Detective Badges</h3>
+                    <div class="badges-grid" id="badges-container">
+                        <!-- Badges will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Daily Quiz Section -->
+            <section id="quiz" class="section">
+                <div class="section-header">
+                    <button class="back-btn" data-target="dashboard">← Back to Dashboard</button>
+                    <h2>Daily Quiz Challenge</h2>
+                </div>
+                
+                <div class="quiz-container">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="quiz-progress"></div>
+                        </div>
+                        <span class="progress-text" id="quiz-progress-text">Question 1 of 8</span>
+                    </div>
+
+                    <div class="quiz-question-card" id="quiz-card">
+                        <div class="question-category" id="question-category"></div>
+                        <div class="timer" id="quiz-timer">30</div>
+                        <h3 class="question-text" id="question-text"></h3>
+                        <div class="options-container" id="options-container">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="quiz-results hidden" id="quiz-results">
+                        <h3>Quiz Complete! 🎉</h3>
+                        <div class="results-stats">
+                            <div class="result-stat">
+                                <span class="result-label">Score:</span>
+                                <span class="result-value" id="final-score">0 / 8</span>
+                            </div>
+                            <div class="result-stat">
+                                <span class="result-label">Points Earned:</span>
+                                <span class="result-value" id="points-earned">0</span>
+                            </div>
+                        </div>
+                        <button class="btn btn--primary" onclick="resetQuiz()">Try Again</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Modules Section -->
+            <section id="modules" class="section">
+                <div class="section-header">
+                    <button class="back-btn" data-target="dashboard">← Back to Dashboard</button>
+                    <h2>Learning Modules</h2>
+                </div>
+                
+                <div class="modules-grid" id="modules-container">
+                    <!-- Modules will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Case Studies Section -->
+            <section id="cases" class="section">
+                <div class="section-header">
+                    <button class="back-btn" data-target="dashboard">← Back to Dashboard</button>
+                    <h2>Case Studies</h2>
+                </div>
+                
+                <div class="cases-container" id="cases-container">
+                    <!-- Case studies will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Resources Hub Section -->
+            <section id="resources" class="section">
+                <div class="section-header">
+                    <button class="back-btn" data-target="dashboard">← Back to Dashboard</button>
+                    <h2>Resource Hub</h2>
+                </div>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3>🔗 Helpful Websites</h3>
+                        <ul>
+                            <li><a href="https://cybercrime.gov.in" target="_blank">Cybercrime.gov.in</a></li>
+                            <li><a href="https://services.india.gov.in " target="_blank">Services</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>🆘 Emergency Contacts</h3>
+                        <ul>
+                            <li><strong>Cyberbullying:</strong> Report to platform</li>
+                            <li><strong>Online Safety:</strong> Tell a trusted adult</li>
+                            <li><strong>Identity Theft:</strong> Contact authorities</li>
+                            <li><strong>Cyber Crime helpline:</strong> Contact 1930</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>📋 Quick Reference</h3>
+                        <ul>
+                            <li>Check source credibility</li>
+                            <li>Verify with multiple sources</li>
+                            <li>Look for bias indicators</li>
+                            <li>Check dates and context</li>
+                            <li>Use fact-checking sites</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>🔒 Security Tips</h3>
+                        <ul>
+                            <li>Use strong, unique passwords</li>
+                            <li>Enable two-factor authentication</li>
+                            <li>Keep software updated</li>
+                            <li>Be cautious with public WiFi</li>
+                            <li>Think before you share</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Navigation Footer -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" data-section="dashboard">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Home</span>
+            </button>
+            <button class="nav-btn" data-section="quiz">
+                <span class="nav-icon">❓</span>
+                <span class="nav-label">Quiz</span>
+            </button>
+            <button class="nav-btn" data-section="modules">
+                <span class="nav-icon">📚</span>
+                <span class="nav-label">Learn</span>
+            </button>
+            <button class="nav-btn" data-section="cases">
+                <span class="nav-icon">🔍</span>
+                <span class="nav-label">Cases</span>
+            </button>
+            <button class="nav-btn" data-section="resources">
+                <span class="nav-icon">🛠️</span>
+                <span class="nav-label">Resources</span>
+            </button>
+        </nav>
+
+        <!-- Modal for feedback -->
+        <div class="modal hidden" id="feedback-modal">
+            <div class="modal-content">
+                <div class="feedback-header">
+                    <h3 id="feedback-title">Answer Feedback</h3>
+                </div>
+                <div class="feedback-body">
+                    <div class="feedback-result" id="feedback-result"></div>
+                    <p id="feedback-explanation"></p>
+                    <div class="points-awarded" id="points-awarded"></div>
+                </div>
+                <button class="btn btn--primary" id="continue-btn">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
